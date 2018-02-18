@@ -6,7 +6,11 @@
 
     <groupId>pl.bolka.aleksander</groupId>
     <artifactId>TDDTraining</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>TicTacToe</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->

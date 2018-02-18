@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import pl.bolka.aleksander.ticTacToe.TicTacToe;
 
 public class TicTacToeTest {
 
