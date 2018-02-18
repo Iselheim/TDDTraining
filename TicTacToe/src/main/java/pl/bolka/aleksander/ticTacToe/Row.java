@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class Row {
 
-    private Map<Integer,Sign> fields;
+    private final Map<Integer,Sign> fields;
 
     public Row() {
-        this.fields = new HashMap<Integer, Sign>();
+        this.fields = new HashMap<>();
         fields.put(1,Sign.NONE);
         fields.put(2,Sign.NONE);
         fields.put(3,Sign.NONE);
@@ -18,7 +18,20 @@ public class Row {
         return fields;
     }
 
-    public void setFields(Map<Integer, Sign> fields) {
-        this.fields = fields;
+    public Sign getField(Integer key){
+        if (key == null || !fields.containsKey(key)){
+            throw new RuntimeException("Wrong key");
+        }
+        return fields.get(key);
+    }
+
+    public void setField(Integer key,Sign sign){
+        if (!fields.containsKey(key)){
+            throw new RuntimeException("Wrong key, not exist");
+        }
+        if (!Sign.NONE.equals(fields.get(key))){
+            throw new RuntimeException("Not empty field");
+        }
+        fields.replace(key,sign);
     }
 }

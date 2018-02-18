@@ -2,14 +2,13 @@ package pl.bolka.aleksander.ticTacToe;
 
 import java.util.HashMap;
 import java.util.Map;
-import pl.bolka.aleksander.ticTacToe.Row;
 
 public class Board {
 
-    private Map<Integer, Row> rows;
+    private final Map<Integer, Row> rows;
 
     public Board() {
-        this.rows = new HashMap<Integer, Row>();
+        this.rows = new HashMap<>();
         rows.put(1,new Row());
         rows.put(2,new Row());
         rows.put(3,new Row());
@@ -19,7 +18,11 @@ public class Board {
         return rows;
     }
 
-    public void setRows(Map<Integer, Row> rows) {
-        this.rows = rows;
+    public Row getRow(Integer key){
+        if (key == null || !rows.containsKey(key)){
+            throw new RuntimeException("Key dont exist");
+        }
+        return rows.get(key);
     }
+
 }
